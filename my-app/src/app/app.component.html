@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mrgnbtm">
+      <h2>Create User</h2>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <div class="row">
+          <div class="form-group col-md-6">
+            <label for="nome">Nome</label>
+            <input type="text" value class="form-control" [(ngModel)]="user.name" placeholder="nome" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" [(ngModel)]="user.cpf" id="cpf" placeholder="cpf" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" [(ngModel)]="user.endereco" [ngModelOptions]="{standalone: true}" id="endereco" aria-describedby="emailHelp" placeholder="Email">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Create</button>
+      </form>
+    </div>
+    <div class="col-md-4 mrgnbtm">
+      <app-display-board
+       [userCount]="userCount"
+       (getUsersEvent)="getAllUsers()"
+      >
+      </app-display-board>
+    </div>
+  </div>
+</div>
+<div class="mrgnbtm">
+  <app-users *ngIf="users.length !== 0" [users]="users"></app-users>
+</div>

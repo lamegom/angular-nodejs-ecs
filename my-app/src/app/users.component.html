@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Users</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>Name</th>
+        <th>CPF</th>
+        <th>Endereco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.cpf}}</td>
+        <td>{{user.endereco}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
